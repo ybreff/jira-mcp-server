@@ -302,3 +302,45 @@ Las contribuciones son bienvenidas. Por favor:
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 - [Jira REST API Documentation](https://developer.atlassian.com/cloud/jira/platform/rest/v3/)
 - [JQL Documentation](https://support.atlassian.com/jira-software-cloud/docs/use-advanced-search-with-jira-query-language-jql/)
+
+## Configurar la IA para usar el servidor MCP
+
+En el archivo de configuración de tu cliente MCP (como Claude Desktop):
+
+```json
+{
+  "mcpServers": {
+    "jira": {
+      "command": "node",
+      "args": ["path/to/your/jira-mcp-server/build/index.js"],
+      "env": {
+        "JIRA_BASE_URL": "https://tu-dominio.atlassian.net",
+        "JIRA_USERNAME": "tu-email@dominio.com",
+        "JIRA_API_TOKEN": "tu-token-de-api"
+      }
+    }
+  }
+}
+```
+
+#### Funcionalidades disponibles
+
+```
+get_issue: Obtener información de un issue específico
+create_issue: Crear nuevos issues
+update_issue: Actualizar issues existentes
+search_issues: Buscar issues con JQL
+add_comment: Agregar comentarios
+get_project_info: Información del proyecto
+```
+
+#### Ejemplos de uso
+
+Una vez configurado, tu IA podrá:
+
+```
+"Muéstrame el issue PROJ-123"
+"Crea un nuevo bug en el proyecto TEST con el resumen 'Error en login'"
+"Busca todos los issues asignados a juan.perez"
+"Agrega un comentario al issue PROJ-456 diciendo que está en revisión"
+```
