@@ -1,0 +1,38 @@
+{
+  "name": "jira-mcp-server",
+  "version": "1.0.0",
+  "description": "Servidor MCP para integración con Jira usando Axios y TypeScript",
+  "main": "build/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js",
+    "dev": "tsc --watch",
+    "clean": "rm -rf build",
+    "prebuild": "npm run clean",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.4.0",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0"
+  },
+  "bin": {
+    "jira-mcp-server": "build/index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "jira",
+    "mcp",
+    "model-context-protocol",
+    "axios",
+    "typescript"
+  ],
+  "author": "Yasmany Breffpacheco",
+  "license": "MIT"
+}
